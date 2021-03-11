@@ -17,6 +17,31 @@ public class Stack {
         }
     }
 
+    public boolean isEmpty(){
+        return this.peak == null;
+    }
+
+    public <T> T peak(){
+        if(!isEmpty()){
+            return (T) this.peak.key;
+        }
+        else{
+            System.out.println("Stack is empty");
+            return null;
+        }
+    }
+
+    public <T> void pop(){
+        if(isEmpty()){
+            System.out.println("Stack is empty");
+        }
+        else {
+            T pop = peak();
+            System.out.println("Popped "+pop);
+            peak = peak.next;
+        }
+    }
+
     public void toPrint(){
         if(this.peak == null){
             System.out.println("Stack is empty");
@@ -38,6 +63,10 @@ public class Stack {
         stack.add(first);
         stack.add(second);
         stack.add(third);
+        stack.toPrint();
+        T top = stack.peak();
+        System.out.println("Top is "+top);
+        stack.pop();
         stack.toPrint();
     }
 }
