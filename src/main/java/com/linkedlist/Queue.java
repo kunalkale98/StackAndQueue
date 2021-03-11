@@ -30,6 +30,16 @@ public class Queue {
         }
     }
 
+    public void dequeue(){
+        if(this.front ==  null){
+            System.out.println("Queue is empty");
+        }
+        else{
+            System.out.println("Removed "+this.front.key);
+            this.front = this.front.next;
+        }
+    }
+
     public void toPrint(){
         if(this.front == null){
             System.out.println("Stack is empty");
@@ -53,5 +63,7 @@ public class Queue {
         queue.enqueue(third);
         queue.toPrint();
         queue.top();
+        queue.dequeue();
+        queue.toPrint();
     }
 }
